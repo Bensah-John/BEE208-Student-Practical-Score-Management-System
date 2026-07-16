@@ -1,0 +1,112 @@
+# BEE 208: Student Practical Score Management System
+
+**Course Code:** BEE 208  
+**Project Title:** Student Practical Score Management System  
+**Institution:** Accra Technical University  
+**Department:** Department of Electrical/Electronic Engineering  
+**Lecturer:** Douglas Ayitey  
+
+---
+
+## 1. Group Members & Contributions
+
+|           Student Name           | Index Number|Role / Contribution    |
+|           Bensah John            |  01243670B  |Project Lead           |
+|        Frempong Emmanuel         |  01244295B  |Algorithm Writer       |
+|         Adu Kelvin Kofi          |  01243020B  |Pseudocode Writer      |
+|    Adinyira Manasseh Adinyira    |  01244658B  |Flowchart Designer     |
+|     Agbenorxevi Leticia Adzo     |  01244746B  |Testing Lead           |
+|        Sacky Hubert Nii          |  01245681B  |C++ Programmer         |
+|     Bimpong-Kwahen Blisspaul     |  01242997B  |C++ Programmer         |
+|    Dzamah Elikplim Justice       |  01243768B  |GitHub Manager         |
+|         Lawal Mohammed           |  012467524  |Documention Lead       |
+|          Benyi Godfred           |  01244342B  |Presentation lead      |
+---
+
+## 2. Introduction
+In engineering education, practical laboratory sessions and hands-on workshops are essential for continuous assessment. Lecturers frequently manage, compute, and track multiple practical marks for large classes. 
+
+This project introduces a command-line C++ program designed to automate the recording, calculation, and grading of three distinct laboratory scores per student. The system categorizes student performance instantly and writes a permanent text report to local storage, replacing inefficient paper-based tracking.
+
+---
+
+## 3. Problem Statement
+Manual calculation of engineering grades is highly vulnerable to human transcription errors, computational mistakes, and spreadsheet formatting failures. Furthermore, physical grade books risk damage or loss. 
+
+There is a critical need for a lightweight, dependency-free console application that dynamically validates scores, computes statistical averages, applies grading logic, and saves the data securely to persistent storage.
+
+---
+
+## 4. Aim & Objectives
+
+### Aim
+To design and implement an Object-Oriented C++ application that automates student practical score management and records persistent assessment data.
+
+### Objectives
+* **OOP Modeling:** Securely encapsulate student records using a C++ class.
+* **Input Validation:** Restrict inputs dynamically to valid academic bounds ($0 \le \text{score} \le 100$).
+* **Dynamic Memory:** Use sequential dynamic vectors (`std::vector`) to handle variable class sizes.
+* **File I/O Operations:** Standardize grade output and save structured text reports to a local file.
+
+---
+
+## 5. System Requirements
+
+### Hardware Requirements
+* **Processor:** 1.6 GHz dual-core CPU or faster.
+* **Memory:** 4 GB RAM minimum.
+* **Storage:** 50 MB free disk space (for IDE and compilation).
+
+### Software Environment
+* **Language Standard:** C++11 or higher.
+* **Compiler:** GCC (MinGW for Windows) or Clang.
+* **Development Environment:** VS Code, Code::Blocks, or terminal interfaces.
+
+---
+
+## 6. System Architecture & Code Design
+
+The system is engineered around four main computational pillars:
+
+### I. Object-Oriented Design (OOP)
+We encapsulate data using a `StudentScore` class. This ensures data security through access control:
+* **Private Members:** Store sensitive state variables (`name`, `scores`, `average`, `grade`).
+* **Public Interface:** Accessor and mutator methods (getters and setters) manage object states securely.
+
+### II. Dynamic Memory & Data Collection
+Unlike rigid static arrays, we utilize `std::vector<StudentScore>` to handle class data. This allows the system to scale fluidly at runtime depending on the total number of students entered by the user.
+
+### III. Input Stream Handling & Validation
+To prevent software bugs during terminal input, we implement the following logic:
+* **Stream Cleaning:** We utilize `cin.ignore()` to flush the input buffer before invoking `getline(cin, name)`. This prevents the common C++ bug where whitespaces or previous newlines cause the program to skip name inputs.
+* **Bounds Control:** Individual scores are validated inside a loop ensuring:
+  $$0 \le \text{Practical Score} \le 100$$
+
+### IV. Grading and Output Logic
+* **Averages:** Total average is computed as:
+  $$\text{Average} = \frac{\text{Score}_1 + \text{Score}_2 + \text{Score}_3}{3}$$
+* **Categorization:** An `if-else` decision structure determines performance remarks (e.g., Distinction, Pass, Fail).
+* **Data Persistence:** The program formats all floating-point numbers to two decimal places and pipes the structured results to a persistent text file (`.txt`) using the standard `<fstream>` library.
+
+---
+
+## 7. Challenges & Engineering Solutions
+
+### 1. Newline Buffer Skipping (Console Input Bug)
+* **The Problem:** When mixing `cin >>` (for numbers) and `getline()` (for names), the program read leftover newline characters (`\n`) as empty names, skipping crucial student inputs.
+* **The Solution:** Integrated `std::cin.ignore()` immediately after numerical inputs to clear the stream buffer before invoking name inputs.
+
+### 2. Invalid Score Entries (Input Safety)
+* **The Problem:** Erroneous numerical inputs (such as negative numbers or scores above 100) corrupted overall class statistics.
+* **The Solution:** Standardized validation logic using strict `do-while` loops. The system rejects invalid entries and prompts the user repeatedly until a valid score is provided.
+
+---
+
+## 8. Conclusion
+This project successfully demonstrates how Object-Oriented programming in C++ can resolve real-world administrative challenges in engineering departments. By combining dynamic memory, stream manipulation, and File I/O, the program provides a robust, error-resistant, and secure grading tool.
+
+---
+
+## 9. Future Scope
+* **File Import Integration:** Read previous database files directly into the program on launch to resume editing.
+* **Graphical Interface (GUI):** Wrap the console backend in a lightweight GUI using framework libraries (such as Qt or wxWidgets).
