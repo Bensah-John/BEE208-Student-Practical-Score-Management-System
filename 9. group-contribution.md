@@ -1,0 +1,13 @@
+
+## GROUP CONTRIBUTION
+|           Student Name           | Index Number|Role / Contribution    |
+|           Bensah John            |  01243670B  |Project Lead           |
+|        Frempong Emmanuel         |  01244295B  |Algorithm Writer       |
+|         Adu Kelvin Kofi          |  01243020B  |Pseudocode Writer      |
+|    Adinyira Manasseh Adinyira    |  01244658B  |Flowchart Designer     |
+|     Agbenorxevi Leticia Adzo     |  01244746B  |Testing Lead           |
+|        Sacky Hubert Nii          |  01245681B  |C++ Programmer         |
+|     Bimpong-Kwahen Blisspaul     |  01242997B  |C++ Programmer         |
+|    Dzamah Elikplim Justice       |  01243768B  |GitHub Manager         |
+|         Lawal Mohammed           |  012467524  |Documention Lead       |
+|          Benyi Godfred           |  01244342B  |Presentation lead      |
